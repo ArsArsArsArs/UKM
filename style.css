@@ -56,7 +56,30 @@ input:focus {
 	align-items: center;
 	justify-content: center;
 }
+
 .answerFields {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	margin-left: 5px;
+}
+
+.answerFields input[type="text"],
+.answerFields input[type="radio"] {
+	width: 100%;
+}
+
+.answerFields > div {
+	display: flex;
+	align-items: center; 
+	gap: 10px;
+}
+
+.answerFields input[type="radio"] {
+	margin-top: 0;
+}
+
+/* .answerFields {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 7px;
@@ -74,7 +97,7 @@ input:focus {
 }
 .answerFields input[type="radio"]:focus {
 	box-shadow: none;
-}
+} */
 
 .main-buttons {
 	display: flex;
