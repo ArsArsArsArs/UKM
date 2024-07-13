@@ -21,6 +21,7 @@ p {
 }
 input {
 	background-color: transparent;
+	-webkit-border-radius: 30px;
 	border-radius: 30px;
 	border: 2px solid var(--tg-theme-button-color);
 	height: 30px;
