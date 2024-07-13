@@ -58,25 +58,19 @@ input:focus {
 }
 
 .answerFields {
-	display: flex;
-	flex-direction: column;
-	gap: 7px;
-	margin-left: 5px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 7px;
+    margin-left: 5px;
+    align-items: center;
 }
 
-.answerFields input[type="text"],
-.answerFields input[type="radio"] {
-	width: 100%;
-}
-
-.answerFields > div {
-	display: flex;
-	align-items: center; 
-	gap: 10px;
+.answerFields input[type="text"] {
+  width: calc(100% - 12px); 
 }
 
 .answerFields input[type="radio"] {
-	margin-top: 0;
+    margin-top: 0;
 }
 
 /* .answerFields {
