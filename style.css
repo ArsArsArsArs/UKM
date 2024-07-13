@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+}
+body{
+	font-family: "Roboto", sans-serif;
+	color: var(--tg-theme-text-color);
+	background: var(--tg-theme-bg-color);
+}
+hr {
+	border-color: var(--tg-theme-button-color);
+}
+a {
+	text-decoration: none;
+	color: var(--tg-theme-text-color);
+}
+li {
+	padding: 5px;
+}
+p {
+	padding-left: 5px;
+}
+input {
+	background-color: transparent;
+	border-radius: 30px;
+	border: 2px solid var(--tg-theme-button-color);
+	height: 30px;
+	color: var(--tg-theme-text-color);
+	text-align: center;
+	font-size: 16px;
+}
+input:focus {
+	box-shadow: 0px 0px 10px 3px var(--tg-theme-button-color);
+	border: none;
+	outline: none;
+}
+.hint{
+	color: var(--tg-theme-hint-color);
+	font-size: 80%;
+}
+.link{
+	color: var(--tg-theme-link-color);
+}
+.button{
+	background: var(--tg-theme-button-color);
+	color: var(--tg-theme-button-text-color);
+}
+.basic-separator {
+	border-top: 2px;
+	margin: 3%;
+}
+
+.questionInput {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.answerFields {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 7px;
+	margin-left: 5px;
+}
+.answerFields input[type="text"] {
+	width: calc(100% - 12px);
+}
+.answerFields input[type="radio"] {
+	margin-top: 2px;
+	border: none;
+	outline: none;
+	color: var(--tg-theme-button-color);
+	width: calc(100% - 12px);
+}
+.answerFields input[type="radio"]:focus {
+	box-shadow: none;
+}
+
+.main-buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+.main-buttons span {
+    align-self: stretch;
+    line-height: 1;
+}
+.main-buttons svg {
+    vertical-align: middle;
+}
+.main-button {
+	text-decoration: none;
+	background-color: var(--tg-theme-button-color);
+	color: var(--tg-theme-button-text-color);
+	line-height: 30px;
+    border-radius: 10px;
+	width: 300px;
+	margin: 3px auto;
+	text-align: center;
+	font-size: 18px;
+    white-space: nowrap;
+}
+.customFileInput {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.customFileInput input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+.customFileInput label {
+    background-color: var(--tg-theme-button-color);
+    border-radius: 30px;
+    color: var(--tg-theme-text-color);
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}

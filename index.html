@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+        <title>U Know Me</title>
+    
+        <link rel="stylesheet" href="style.css">
+
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h2 style="text-align: center; padding: 5px;">Установи вопросы и ответы для твоего будущего теста</h2>
+        <ul class="hint">
+            <li>Ты можешь заполнять вопросы не по порядку</li>
+            <li>Необязательно заполнять все варианты ответов</li>
+        </ul>
+        <div class="main-buttons">
+            <a class="main-button auto" id="buttonAuto">
+                <svg id="diamond-svg" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#5f6368"><path d="M480-120 80-600l120-240h560l120 240-400 480Zm-95-520h190l-60-120h-70l-60 120Zm55 347v-267H218l222 267Zm80 0 222-267H520v267Zm144-347h106l-60-120H604l60 120Zm-474 0h106l60-120H250l-60 120Z"/></svg>
+                <span>Заполнить автоматически</span>
+            </a>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const diamondSvg = document.getElementById("diamond-svg");
+
+                    diamondSvg.setAttribute("fill", tg.themeParams.button_text_color);
+                });
+            </script>
+        </div>
+
+        <div class="inputs">
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №1</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput1" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput1_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput1_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput1_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput1_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput1_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput1_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput1_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput1_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput1_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput1_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer1" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №2</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput2" maxlength="40" placeholder="Моё любимое время года" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput2_1" maxlength="20" placeholder="Зима"/>
+                        <input type="radio" name="correctAnswer2" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput2_2" maxlength="20" placeholder="Весна"/>
+                        <input type="radio" name="correctAnswer2" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput2_3" maxlength="20" placeholder="Осень"/>
+                        <input type="radio" name="correctAnswer2" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput2_4" maxlength="20" placeholder="Лето"/>
+                        <input type="radio" name="correctAnswer2" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput2_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer2" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput2_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer2" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput2_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer2" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput2_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer2" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput2_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer2" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput2_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer2" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №3</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput3" maxlength="40" placeholder="В качестве питомца я предпочту" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput3_1" maxlength="20" placeholder="Кошку"/>
+                        <input type="radio" name="correctAnswer3" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput3_2" maxlength="20" placeholder="Собаку"/>
+                        <input type="radio" name="correctAnswer3" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput3_3" maxlength="20" placeholder="Попугая"/>
+                        <input type="radio" name="correctAnswer3" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput3_4" maxlength="20" placeholder="Хомяка"/>
+                        <input type="radio" name="correctAnswer3" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput3_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer3" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput3_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer3" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput3_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer3" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput3_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer3" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput3_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer3" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput3_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer3" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №4</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput4" maxlength="40" placeholder="Какой мой любимый цвет?" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта.</p>
+                <p class="hint" style="margin-bottom: 7px;">Отметь правильный вариант точкой</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput4_1" maxlength="20" placeholder="Красный"/>
+                        <input type="radio" name="correctAnswer4" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput4_2" maxlength="20" placeholder="Оранжевый"/>
+                        <input type="radio" name="correctAnswer4" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput4_3" maxlength="20" placeholder="Жёлтый"/>
+                        <input type="radio" name="correctAnswer4" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput4_4" maxlength="20" placeholder="Зелёный"/>
+                        <input type="radio" name="correctAnswer4" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput4_5" maxlength="20" placeholder="Голубой"/>
+                        <input type="radio" name="correctAnswer4" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput4_6" maxlength="20" placeholder="Синий"/>
+                        <input type="radio" name="correctAnswer4" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput4_7" maxlength="20" placeholder="Фиолетовый"/>
+                        <input type="radio" name="correctAnswer4" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput4_8" maxlength="20" placeholder="Розовый"/>
+                        <input type="radio" name="correctAnswer4" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput4_9" maxlength="20" placeholder="Белый"/>
+                        <input type="radio" name="correctAnswer4" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput4_10" maxlength="20" placeholder="Чёрный"/>
+                        <input type="radio" name="correctAnswer4" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №5</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput5" maxlength="40" placeholder="Моя любимая видеоигра" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput5_1" maxlength="20" placeholder="Не играю в видеоигры"/>
+                        <input type="radio" name="correctAnswer5" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput5_2" maxlength="20" placeholder="Майнкрафт"/>
+                        <input type="radio" name="correctAnswer5" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput5_3" maxlength="20" placeholder="Ведьмак"/>
+                        <input type="radio" name="correctAnswer5" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput5_4" maxlength="20" placeholder="Симс"/>
+                        <input type="radio" name="correctAnswer5" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput5_5" maxlength="20" placeholder="Фортнайт"/>
+                        <input type="radio" name="correctAnswer5" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput5_6" maxlength="20" placeholder="Контр Страйк"/>
+                        <input type="radio" name="correctAnswer5" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput5_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer5" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput5_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer5" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput5_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer5" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput5_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer5" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №6</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput6" maxlength="40" placeholder="Время рождения" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput6_1" maxlength="20" placeholder="Утром"/>
+                        <input type="radio" name="correctAnswer6" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput6_2" maxlength="20" placeholder="Днём"/>
+                        <input type="radio" name="correctAnswer6" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput6_3" maxlength="20" placeholder="Вечером"/>
+                        <input type="radio" name="correctAnswer6" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput6_4" maxlength="20" placeholder="Ночью"/>
+                        <input type="radio" name="correctAnswer6" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput6_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer6" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput6_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer6" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput6_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer6" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput6_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer6" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput6_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer6" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput6_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer6" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №7</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput7" maxlength="40" placeholder="Что я больше люблю?" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput7_1" maxlength="20" placeholder="Десерты"/>
+                        <input type="radio" name="correctAnswer7" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput7_2" maxlength="20" placeholder="Фрукты"/>
+                        <input type="radio" name="correctAnswer7" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput7_3" maxlength="20" placeholder="Ягоды"/>
+                        <input type="radio" name="correctAnswer7" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput7_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer7" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput7_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer7" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput7_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer7" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput7_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer7" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput7_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer7" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput7_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer7" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput7_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer7" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №8</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput8" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput8_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput8_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput8_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput8_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput8_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput8_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput8_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput8_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput8_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput8_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer8" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №9</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput9" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput9_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput9_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput9_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput9_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput9_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput9_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput9_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput9_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput9_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput9_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer9" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №10</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput10" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput10_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput10_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput10_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput10_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput10_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput10_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput10_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput10_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput10_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput10_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer10" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №11</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput11" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput11_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput11_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput11_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput11_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput11_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput11_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput11_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput11_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput11_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput11_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer11" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №12</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput12" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput12_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput12_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput12_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput12_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput12_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput12_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput12_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput12_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput12_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput12_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer12" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №13</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput13" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput13_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput13_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput13_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput13_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput13_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput13_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput13_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput13_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput13_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput13_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer13" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №14</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput14" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput14_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput14_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput14_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput14_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput14_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput14_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput14_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput14_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput14_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput14_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer14" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №15</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput15" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput15_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput15_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput15_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput15_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput15_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput15_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput15_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput15_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput15_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput15_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer15" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №16</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput16" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput16_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput16_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput16_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput16_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput16_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput16_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput16_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput16_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput16_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput16_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer16" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №17</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput17" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput17_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput17_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput17_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput17_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput17_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput17_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput17_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput17_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput17_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput17_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer17" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №18</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput18" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput18_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput18_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput18_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput18_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput18_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput18_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput18_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput18_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput18_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput18_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer18" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №19</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput19" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput19_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput19_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput19_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput19_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput19_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput19_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput19_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput19_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput19_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput19_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer19" value="10"/>
+                    </div>
+                </div>
+            </div>
+            <hr class="basic-separator">
+            <div class="questionInput">
+                <h3 style="margin-bottom: 4px;">Вопрос №20</h3>
+                <h4 style="margin-bottom: 7px;">Текст вопроса</h4>
+                <input type="text" id="questionInput20" maxlength="40" placeholder="Введи вопрос" style="width: 90%; margin-bottom: 9px;"/>
+                <h4 style="margin-bottom: 2px;">Варианты ответов</h4>
+                <p class="hint" style="margin-bottom: 7px;">Заполни как минимум 2 варианта</p>
+                <div class="answerFields" style="margin-bottom: 9px;">
+                    <div>
+                        <input type="text" id="answerInput20_1" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="1"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput20_2" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="2"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput20_3" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="3"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput20_4" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="4"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput20_5" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="5"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput20_6" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="6"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput20_7" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="7"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput20_8" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="8"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput20_9" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="9"/>
+                    </div>
+                    <div>
+                        <input type="text" id="answerInput20_10" maxlength="20" placeholder="Вариант ответа"/>
+                        <input type="radio" name="correctAnswer20" value="10"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./script.js"></script>
+</html>
