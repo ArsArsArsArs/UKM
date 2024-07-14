@@ -64,26 +64,43 @@ input:focus {
 	margin-left: 5px;
 }
   
-.answerFields > div {
-	flex: 0 0 calc(50% - 7px); /* Two columns with 7px gap */
+  answerFields > div {
+	width: 48%;
 	margin-bottom: 7px;
+	display: flex;
+	align-items: center; 
 }
   
 .answerFields input[type="text"] {
-	width: 92%;
+	width: 100%; 
+	box-sizing: border-box; 
 }
   
 .answerFields input[type="radio"] {
-	align-items: center;
-	margin-top: 2px;
-	border: none;
-	outline: none;
-	color: var(--tg-theme-button-color);
-	width: 92%;
+	appearance: none;
+	-webkit-appearance: none;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	border: 2px solid #ccc;
+	margin-right: 5px;
+	position: relative; 
+}
+.answerFields input[type="radio"]:checked::before {
+	content: '';
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: var(--tg-theme-button-color); 
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); 
 }
   
 .answerFields input[type="radio"]:focus {
-	box-shadow: none;
+	outline: none;
 }
 
 /* .answerFields {
