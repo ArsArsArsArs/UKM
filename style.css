@@ -58,6 +58,35 @@ input:focus {
 }
 
 .answerFields {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-left: 5px;
+}
+  
+.answerFields > div {
+	flex: 0 0 calc(50% - 7px); /* Two columns with 7px gap */
+	margin-bottom: 7px;
+}
+  
+.answerFields input[type="text"] {
+	width: 92%;
+}
+  
+.answerFields input[type="radio"] {
+	align-items: center;
+	margin-top: 2px;
+	border: none;
+	outline: none;
+	color: var(--tg-theme-button-color);
+	width: 92%;
+}
+  
+.answerFields input[type="radio"]:focus {
+	box-shadow: none;
+}
+
+/* .answerFields {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 7px;
@@ -76,7 +105,7 @@ input:focus {
 }
 .answerFields input[type="radio"]:focus {
 	box-shadow: none;
-}
+} */
 
 .main-buttons {
 	display: flex;
