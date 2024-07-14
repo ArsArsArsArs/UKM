@@ -67,6 +67,39 @@ input:focus {
 .answerFields > div {
     flex: 1 1 calc(50% - 7px);
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.answerFields input[type="text"] {
+    width: 92%;
+}
+
+.answerFields input[type="radio"] {
+    margin-top: 2px;
+    border: none;
+    outline: none;
+    color: var(--tg-theme-button-color);
+    width: 20px;
+    height: 20px;
+}
+
+.answerFields input[type="radio"]:focus {
+    box-shadow: none;
+}
+
+
+/* .answerFields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-left: 2px;
+	margin-right: 5px;
+}
+
+.answerFields > div {
+    flex: 1 1 calc(50% - 7px);
+    display: flex;
     align-items: center;
 }
 
@@ -84,28 +117,6 @@ input:focus {
 
 .answerFields input[type="radio"]:focus {
     box-shadow: none;
-}
-
-
-/* .answerFields {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 7px;
-	margin-left: 5px;
-}
-.answerFields input[type="text"] {
-	width: 92%;
-}
-.answerFields input[type="radio"] {
-	align-items: center;
-	margin-top: 2px;
-	border: none;
-	outline: none;
-	color: var(--tg-theme-button-color);
-	width: 92%;
-}
-.answerFields input[type="radio"]:focus {
-	box-shadow: none;
 } */
 
 .main-buttons {
